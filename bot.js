@@ -1,102 +1,30 @@
+var ServerID = "505715759402582016";// اي دي السيرفر الفيه البوت
+var ChannelID = "507890563878617102"; // اي دي الروم التبيه يعمل فيه سبام
+
 const Discord = require('discord.js');
-
 const client = new Discord.Client();
+const prefix = '!';
 
-const moment = require('moment');
+client.on('warn', console.warn);
 
-const getYoutubeID = require('get-youtube-id');
+client.on('error', console.error);
 
-const fetchVideoInfo = require('youtube-info');
 
-const YouTube = require('simple-youtube-api');
 
-const youtube = new YouTube("AIzaSyAdORXg7UZUo7sePv97JyoDqtQVi3Ll0b8");
+client.on('ready', () => console.log('ProBot Credits Miner Discord.js Script'));
 
-const queue = new Map();
+client.on('disconnect', () => console.log('PROBOT credits miner had disconnected!'));
 
-const ytdl = require('ytdl-core');
+client.on('reconnecting', () => console.log('PROBOT credits miner is reconnecting...'));
 
-const fs = require('fs');
 
-const gif = require("gif-search");
+function timerFunc() {
+    client.on('message', msg => {
+        client.guilds.get(ServerID).channels.get(ChannelID).send(Math.random().toString(36).substring(7))
 
-const prefix = "spam"
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- client.on("message", message => {
-
- if (message.content === prefix + "help") {
-
-if(!message.member.hasPermission('ADMINISTRATOR')) return message.channel.send(':no_entry: | `Adminstrator`للاسف ليس لديك صلاحية يجي ان يكون لديك برمشن!');	 
-
-  const embed = new Discord.RichEmbed()
-
-      .setColor("RANDOM")
-
-      .setDescription(`
-
-─════════════ {✯SpamHelp♧✯} ════════════─
-
-❖-|spamon| حتى تشغل السبام
-
-❖-|spamoff|حتى توقف السبام
-
-❖-|spamcome|حتى تثبت الحساب بروم صوتي
-
-❖-|spamon| حتى تشغل السبام
-
-❖-|spamsay|حتى تتحكم بلبوت من حسابك 
-
-  **spamsay #creditمثلا**
-
-  **#credit البوت يقول**   
-
-─════════════ {✯Spam Help♧✯} ════════════─
-
-      `)
-
-   message.channel.sendEmbed(embed)
-
-    }
-
-   });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    });
+}
 
 client.on('message', message => {
 
@@ -114,7 +42,7 @@ client.on('message', message => {
 
 let args = message.content.split(" ").slice(1);
 
-if(!args) return message.channel.send('${prefix}say <words>');	
+if(!args) return message.channel.send('${prefix}say <words>');    
 
 
 
@@ -131,239 +59,13 @@ message.channel.send(args.join("  "))
   }
 
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
- 
-
- 
-
-client.on("message", msg => {  
-
-if(msg.content.startsWith(prefix + `on`)) {
-
-if(!msg.member.hasPermission('ADMINISTRATOR')) return msg.channel.send(':no_entry: | `Adminstrator`للاسف ليس لديك صلاحية يجي ان يكون لديك برمشن!');
-
-let spam = msg.guild.channels.find('name', 'spam');
-
- if (!spam) return msg.channel.send('**`spam`يرجى اضافة روم باسم**' );
-
-setInterval(function(){
-
-	spam.send('spam')
-
-}, 500);
-
-setInterval(function(){
-
-	spam.send('hi')
-
-}, 1000);
-
-setInterval(function(){
-
-	spam.send('i like this')
-
-}, 1500);	
-
-	}
-
-});
-
-client.on("message", msg => {  
-
-if(msg.content.startsWith(prefix + `1on`)) {
-
-if(!msg.member.hasPermission('ADMINISTRATOR')) return msg.channel.send(':no_entry: | `Adminstrator`للاسف ليس لديك صلاحية يجي ان يكون لديك برمشن!');
-
-let spam = msg.guild.channels.find('name', '1spam');
-
- if (!spam) return msg.channel.send('**`spam`يرجى اضافة روم باسم**' );
-
-setInterval(function(){
-
-	spam.send('spam')
-
-}, 500);
-
-setInterval(function(){
-
-	spam.send('hi')
-
-}, 1000);
-
-setInterval(function(){
-
-	spam.send('i like this')
-
-}, 1500);	
-
-	}
-
-});
-
-client.on("message", msg => {  
-
-if(msg.content.startsWith(prefix + `2on`)) {
-
-if(!msg.member.hasPermission('ADMINISTRATOR')) return msg.channel.send(':no_entry: | `Adminstrator`للاسف ليس لديك صلاحية يجي ان يكون لديك برمشن!');
-
-let spam = msg.guild.channels.find('name', '2spam');
-
- if (!spam) return msg.channel.send('**`2spam`يرجى اضافة روم باسم**' );
-
-setInterval(function(){
-
-	spam.send('spam')
-
-}, 500);
-
-setInterval(function(){
-
-	spam.send('hi')
-
-}, 1000);
-
-setInterval(function(){
-
-	spam.send('i like this')
-
-}, 1500);	
-
-	}
-
-});	  
-
-client.on("message", msg => {  
-
-if(msg.content.startsWith(prefix + `3on`)) {
-
-if(!msg.member.hasPermission('ADMINISTRATOR')) return msg.channel.send(':no_entry: | `Adminstrator`للاسف ليس لديك صلاحية يجي ان يكون لديك برمشن!');
-
-let spam = msg.guild.channels.find('name', '3spam');
-
- if (!spam) return msg.channel.send('**`3spam`يرجى اضافة روم باسم**' );
-
-setInterval(function(){
-
-	spam.send('spam')
-
-}, 500);
-
-setInterval(function(){
-
-	spam.send('hi')
-
-}, 1000);
-
-setInterval(function(){
-
-	spam.send('i like this')
-
-}, 1500);	
-
-	}
-
-});	  
-
-client.on("message", msg => {  
-
-if(msg.content.startsWith(prefix + `4on`)) {
-
-if(!msg.member.hasPermission('ADMINISTRATOR')) return msg.channel.send(':no_entry: | `Adminstrator`للاسف ليس لديك صلاحية يجي ان يكون لديك برمشن!');
-
-let spam = msg.guild.channels.find('name', '4spam');
-
- if (!spam) return msg.channel.send('**`4spam`يرجى اضافة روم باسم**' );
-
-setInterval(function(){
-
-	spam.send('spam')
-
-}, 500);
-
-setInterval(function(){
-
-	spam.send('hi')
-
-}, 1000);
-
-setInterval(function(){
-
-	spam.send('i like this')
-
-}, 1500);	
-
-	}
-
-});
-
-
-
-
-
-
-
-
-
-    client.on('message',async message => {
-
-    if(message.content.startsWith(prefix + "off")) {
-
-       if(!message.member.hasPermission('ADMINISTRATOR')) return message.reply(':no_entry: | `Adminstrator`للاسف ليس لديك صلاحية يجي ان يكون لديك برمشن!');
-
-        message.channel.send('**Stopping.**').then(msg => {
-
-            setTimeout(() => {
-
-               msg.edit('**Stoppping..**');
-
-            },1000);
-
-            setTimeout(() => {
-
-               msg.edit('**Done i will relunch early...**');
-
-            },2000);
-
-        });
-
-        setTimeout(() => {
-
-            client.destroy();
-
-client.login(process.env.BOT_TOKEN);
-
-        },3000);
-
-    }
-
-});
-
-
-
-
-
 client.on('message', message => {
-
- if(message.content.startsWith(prefix + "come")) {
-
-message.member.voiceChannel.join();
-
+     if (message.content === "!av-set") {
+client.user.setAvatar(`https://cdn.discordapp.com/avatars/507167400836202506/d8459fa53dc9b1b9c4607aafc9c5127b.jpg?size=128`)
+ 
 }
-
 });
 
+var timer = setTimeout(timerFunc, 1000);
 
-
-client.login(process.env.BOT_TOKEN);
+client.login(process.env.BOT_TOKEN); 
